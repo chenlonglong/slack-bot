@@ -67,6 +67,14 @@ server.use(async (ctx) => {
       };
     }
   } else if (command === '/list') {
+    const user = db.get('user').value();
+    const users = Object.keys(user).map((k) => Object.assign(user[k], { id: k }));
+    const list = users.reduce((t, u) => `${t}<@${u.id}>: ${u.penalty}\n`, '');
+    ctx.body = {
+      "response_type": "in_channel",
+      "text": list,
+    };
+  } else if (command === '/shutup') {
   }
   ctx.status = 200;
 });
