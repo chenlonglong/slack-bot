@@ -75,6 +75,20 @@ server.use(async (ctx) => {
       "text": list,
     };
   } else if (command === '/shutup') {
+    const [ mentioned ] = text.trim().split(' ');
+    const user = mentioned.match(/<@(.{9})/)[1];
+    ctx.body = {
+      "response_type": "in_channel",
+      "text": `<@${user}>
+░░░░░░░░░░░░░░░░▄░█▄░█▄▄▄░░
+█▀▀█░░█▀▀█░█▀▀█▄█▄█▄░█▄▄▄█░
+█▀▀█░░█▀▀█░█░░█░░▄█▄▄▄░░░░░
+█▀▀▀░░▀▀▀█░█░░█░▀▄▄▄█▄▄▄░░░
+█░▄▄▄▄█▄░█░▀▀▀▀░░█▄▄█▄▄█░░░
+█░░░▄▀█░░█░░░░░░░█▄▄█▄▄█░░░
+█░▄▀░▄█░▄█░░░░░░▄▀░░░░▄█░░░
+      `,
+    };
   }
   ctx.status = 200;
 });
