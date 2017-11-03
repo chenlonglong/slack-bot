@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/cod-or/slack-bot#readme",
   "dependencies": {
-    "@slack/client": "^3.14.1"
+    "@slack/client": "^3.14.1",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "lowdb": "^1.0.0"
   }
 }
