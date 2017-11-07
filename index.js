@@ -14,6 +14,7 @@ const adapter = new FileSync('db.json');
 const db = low(adapter);
 
 const {
+  PORT: port = 5000,
   slack_webhook_url: webhookUrl = '',
   slack_bot_token: botToken = '',
 } = process.env;
@@ -94,4 +95,4 @@ server.use(async (ctx) => {
 });
 
 rtm.start();
-server.listen(5000);
+server.listen(port);
